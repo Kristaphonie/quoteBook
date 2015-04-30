@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app='quoteBook'>
+	<head>
+		<link rel='stylesheet' href='font-awesome-4.3.0/css/font-awesome.min.css'>
+		<link rel='stylesheet' href='styles.css'>
+	</head>
+
+	<body ng-controller='mainCtrl'>
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js'></script>
+		<div ng-repeat='quote in dataObj | filter:filterBy'>
+			<p><i ng-click='deleteData(quote)' style='color: red' class="fa fa-frown-o"></i> {{quote.text}} by {{quote.author}}</p>
+		</div>
+
+		<label>Quote
+			<input ng-model='quote'>
+		</label>
+		<label>Author
+			<input ng-model='author'>
+		</label>
+		<button ng-click='addQuote()'>Add Quote</button>
+
+		<label>Filter Quote:
+			<input ng-model='filterBy'>
+		</label>
+
+		<script src='js/app.js'></script>
+		<script src='js/dataService.js'></script>
+		<script src='js/mainCtrl.js'></script>
+	</body>
+</html>
